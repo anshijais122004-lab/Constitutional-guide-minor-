@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitutional Guide - Login & Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page-body">
+
+    <div class="login-container">
+        <form class="login-box" id="authForm" onsubmit="return handleAuth(event)">
+            <h2 id="form-title">Sign In</h2>
+            <p id="form-desc">Explore the Constitution of India</p>
+            
+            <input type="email" id="email" placeholder="Enter Email" autofocus required list="email-list">
+            <datalist id="email-list"></datalist>
+            
+            <input type="password" id="pass" placeholder="Enter Password" required>
+            
+            <button type="submit" id="mainBtn">Continue</button>
+            
+            <p id="toggle-text" style="margin-top: 20px; font-size: 14px; color: #555;">
+                Naya account banana hai? 
+                <a href="javascript:void(0)" onclick="toggleMode()" style="color: #001f5b; font-weight: bold;">Sign Up karein</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        let isLoginMode = true;
+
+        function updateEmailSuggestions() {
+            const emailList = document.getElementById('email-list');
+            emailList.innerHTML = '';
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                if (key.includes('@')) {
+                    let option = document.createElement('option');
+                    option.value = key;
+                    emailList.appendChild(option);
+                }
+            }
+        }
+
+        window.onload = updateEmailSuggestions;
+
+        function toggleMode() {
+            isLoginMode = !isLoginMode;
+            const title = document.getElementById("form-title");
+            const btn = document.getElementById("mainBtn");
+            const toggleLink = document.getElementById("toggle-text");
+
+            if (isLoginMode) {
+                title.innerText = "Sign In";
+                btn.innerText = "Continue";
+                toggleLink.innerHTML = 'Naya account banana hai? <a href="javascript:void(0)" onclick="toggleMode()" style="color: #001f5b; font-weight: bold;">Sign Up karein</a>';
+            } else {
+                title.innerText = "Create Account";
+                btn.innerText = "Set Password & Save";
+                toggleLink.innerHTML = 'Pehle se account hai? <a href="javascript:void(0)" onclick="toggleMode()" style="color: #001f5b; font-weight: bold;">Login karein</a>';
+            }
+        }
+
+        function handleAuth(event) {
+            event.preventDefault();
+            let email = document.getElementById("email").value;
+            let pass = document.getElementById("pass").value;
+
+            if (isLoginMode) {
+                let savedPass = localStorage.getItem(email);
+                if (savedPass === null) {
+                    alert("Account nahi mila!");
+                } else if (savedPass === pass) {
+                    localStorage.setItem('currentUser', email); // Login successful, save user
+                    // Maan lijiye email input ki id 'emailInput' hai
+const userEmail = document.getElementById('emailInput').value;
+localStorage.setItem('currentUserEmail', userEmail); // Email save ho gayi
+                    window.location.href = "dashboard.html";
+                } else {
+                    alert("Opps! Password galat hai.");
+                }
+            } else {
+                localStorage.setItem(email, pass);
+                alert("Account Ban Gaya!");
+                updateEmailSuggestions();
+                toggleMode();
+            }
+        }
+    </script>
+</body>
+</html>

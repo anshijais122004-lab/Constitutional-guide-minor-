@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitutional Guide - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <header class="main-header">
+        <div class="nav-logo">🇮🇳 <span>Constitution Guide</span></div>
+    </header>
+
+    <main class="dashboard-content">
+        <div class="title-bar">
+            <h2 class="grid-title">भारतीय संविधान - संपूर्ण अध्ययन</h2>
+            <div class="search-user-box">
+                <button onclick="window.location.href='gallery.html'" 
+                        style="padding: 10px 15px; background-color: #128807; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-right: 10px;">
+                    <i class="fas fa-images"></i> Gallery
+                </button>
+
+                <div class="nav-search">
+                    <input type="text" id="searchInput" placeholder="खोजें... (Part, Article)">
+                    <button onclick="searchArticles()"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="nav-user" id="userName">Loading...</div>
+            </div>
+        </div>
+        
+        <div class="amazon-grid" id="cardGrid">
+            <div class="square-card" onclick="goToArticles('part1')"><div class="card-icon">🗺️</div><h3>Part I</h3><p>The Union & Territory</p><a href="articles.html#part1">Articles 1-4 →</a></div>
+            <div class="square-card" onclick="goToArticles('part2')"><div class="card-icon">🛂</div><h3>Part II</h3><p>Citizenship</p><a href="articles.html#part2">Articles 5-11 →</a></div>
+            <div class="square-card" onclick="goToArticles('part3')"><div class="card-icon">⚖️</div><h3>Part III</h3><p>Fundamental Rights</p><a href="articles.html#part3">Articles 12-35 →</a></div>
+            <div class="square-card" onclick="goToArticles('part4')"><div class="card-icon">🏛️</div><h3>Part IV</h3><p>DPSP</p><a href="articles.html#part4">Articles 36-51 →</a></div>
+            <div class="square-card" onclick="goToArticles('part4a')"><div class="card-icon">🇮🇳</div><h3>Part IV-A</h3><p>Fundamental Duties</p><a href="articles.html#part4a">Article 51A →</a></div>
+            <div class="square-card" onclick="goToArticles('part5')"><div class="card-icon">🏢</div><h3>Part V</h3><p>The Union</p><a href="articles.html#part5">Articles 52-151 →</a></div>
+            <div class="square-card" onclick="goToArticles('part6')"><div class="card-icon">🏘️</div><h3>Part VI</h3><p>The States</p><a href="articles.html#part6">Articles 152-237 →</a></div>
+            <div class="square-card" onclick="goToArticles('part12')"><div class="card-icon">💰</div><h3>Part XII</h3><p>Finance</p><a href="articles.html#part12">Articles 264-300A →</a></div>
+            <div class="square-card" onclick="goToArticles('part9')"><div class="card-icon">🚜</div><h3>Part IX</h3><p>Panchayats</p><a href="articles.html#part9">Articles 243-243O →</a></div>
+            <div class="square-card" onclick="goToArticles('part14')"><div class="card-icon">🎓</div><h3>Part XIV</h3><p>UPSC & Services</p><a href="articles.html#part14">Articles 308-323 →</a></div>
+            <div class="square-card" onclick="goToArticles('part15')"><div class="card-icon">🗳️</div><h3>Part XV</h3><p>Elections</p><a href="articles.html#part15">Articles 324-329A →</a></div>
+            <div class="square-card" onclick="goToArticles('part17')"><div class="card-icon">🗣️</div><h3>Part XVII</h3><p>Official Language</p><a href="articles.html#part17">Articles 343-351 →</a></div>
+            <div class="square-card" onclick="goToArticles('part18')"><div class="card-icon">🚨</div><h3>Part XVIII</h3><p>Emergency</p><a href="articles.html#part18">Articles 352-360 →</a></div>
+            <div class="square-card" onclick="goToArticles('part21')"><div class="card-icon">📜</div><h3>Part XXI</h3><p>Special Provisions</p><a href="articles.html#part21">Articles 369-392 →</a></div>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin: 60px 0; padding: 0 20px;">
+            <div style="background: rgba(255, 255, 255, 0.95); 
+                        width: 1100px; 
+                        padding: 40px; 
+                        border-radius: 12px; 
+                        box-shadow: 0 8px 25px rgba(0,0,0,0.2); 
+                        display: flex; 
+                        align-items: center; 
+                        justify-content: space-between; 
+                        gap: 50px;
+                        border-left: 10px solid #FF9933; 
+                        border-right: 10px solid #128807;">
+
+                <div style="flex: 3; text-align: left;">
+                    <h2 style="color: #001f5b; margin: 0 0 15px 0; font-size: 26px; text-transform: uppercase; font-weight: bold;">About Us</h2>
+                    <p style="color: #333; line-height: 1.8; font-size: 15.5px; margin: 0; text-align: justify;">
+                        The <b>Constitution Guide</b> is a dedicated digital platform designed to bring the profound essence of the Indian Constitution to every citizen's fingertips. Our primary objective is to present complex legal provisions, schedules, and articles in a simplified and accessible language, ensuring that students and the general public can understand them with ease. As the longest written constitution in the world, it provides us with Fundamental Rights while reminding us of our core duties. Through this website, we have endeavored to provide accurate and detailed information for every Part and Article in one centralized location. We believe that for a vibrant democracy to thrive, it is essential for citizens to possess constitutional literacy. This project serves as a comprehensive directory for aspirants preparing for competitive examinations like UPSC, SSC, and state-level boards. Our team is committed to continuously updating this database and integrating new features to enhance your learning experience. You can explore various sections, search for specific constitutional data, and witness the historic journey of the Constitution's formation through our gallery. We sincerely hope that this initiative serves as a valuable resource in your quest for knowledge and legal awareness.
+                    </p>
+                </div>
+
+                <div style="flex: 1; text-align: center;">
+                    <p style="font-weight: bold; color: #555; margin-bottom: 15px;">Get In Touch</p>
+                    
+                  <button onclick="window.location.href='contact.html'" 
+        style="padding: 12px 25px; background-color: #001f5b; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px; white-space: nowrap; transition: 0.3s;">
+    <i class="fas fa-envelope"></i> Contact Us
+</button>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <script>
+    window.onload = function() {
+        // 1. LocalStorage se email nikalna jo login page ne save ki thi
+        const storedEmail = localStorage.getItem('currentUserEmail');
+        
+        // 2. Agar email mil gayi toh wo dikhayega, nahi toh "constitution scholar"
+        const displayName = storedEmail ? storedEmail : "constitution scholar";
+        
+        // 3. Welcome text taiyar karna (Yahan backticks ` ka use zaroori hai)
+        const greetingText = `welcome ${displayName}`;
+        
+        // 4. Dashboard par loading ki jagah email set karna aur logout button lagana
+        document.getElementById('userName').innerHTML = `${greetingText} <i class="fas fa-sign-out-alt" onclick="logout()" style="cursor:pointer; margin-left:10px;" title="Logout"></i>`;
+        
+        // Search bar ke liye Enter key ka setup
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchArticles();
+        });
+    };
+
+    // Card par click karne par sahi Article par le jane ke liye
+    function goToArticles(partId) {
+        window.location.href = `articles.html#${partId}`;
+    }
+
+    // Articles search karne ke liye
+    function searchArticles() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const cards = document.querySelectorAll('.square-card');
+        
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            if (text.includes(query)) {
+                card.style.display = "flex"; 
+                card.style.background = 'rgba(255, 255, 0, 0.2)';
+                setTimeout(() => { card.style.background = ''; }, 2000);
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+
+    // Logout karne ka function
+    function logout() {
+        if (confirm('Logout करें?')) {
+            localStorage.removeItem('currentUserEmail'); // Email ko memory se hatana
+            window.location.href = 'login.html'; // Wapas login page par bhejna
+        }
+    }
+</script>
+</body>
+</html>

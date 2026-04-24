@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Constitution Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            padding: 20px;
+        }
+        .contact-card {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            border-top: 8px solid #FF9933;
+            border-bottom: 8px solid #128807;
+        }
+        .contact-card h1 { color: #001f5b; margin-bottom: 20px; }
+        .contact-info { margin: 25px 0; text-align: left; }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .info-item i { color: #001f5b; font-size: 20px; width: 30px; }
+        .info-item p { margin: 0; color: #333; font-weight: 500; }
+        .back-home {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #001f5b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+    <header class="main-header">
+        <div class="nav-logo">🇮🇳 <span>Constitution Guide</span></div>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-card">
+            <h1>Contact Us</h1>
+            <p>Have questions or suggestions? We'd love to hear from you.</p>
+            
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email: contact@constitutionguide.com</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>Phone: +91 98765 43210</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-location-dot"></i>
+                    <p>Address: New Delhi, India</p>
+                </div>
+            </div>
+
+            <a href="dashboard.html" class="back-home">← Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
